@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary Colors -->
+    <color name="primary">#FFA726</color>        <!-- Warm Orange -->
+    <color name="primary_dark">#FB8C00</color>   <!-- Deep Orange -->
+    <color name="primary_light">#FFCC80</color>  <!-- Soft Orange -->
+
+    <!-- Secondary / Accent Colors -->
+    <color name="accent">#4DB6AC</color>         <!-- Calm Teal -->
+    <color name="accent_light">#B2DFDB</color>   <!-- Soft Mint -->
+    <color name="accent_dark">#00796B</color>    <!-- Deep Teal -->
+
+    <!-- Backgrounds -->
+    <color name="background_light">#FAF9F6</color> <!-- Soft Cream -->
+    <color name="background_dark">#ECEFF1</color> <!-- Light Gray-Blue -->
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>   <!-- Almost Black -->
+    <color name="text_secondary">#757575</color> <!-- Medium Gray -->
+    <color name="text_light">#BDBDBD</color>     <!-- Light Gray -->
+
+    <!-- Alert & Status Colors -->
+    <color name="status_adoptable">#66BB6A</color>  <!-- Green -->
+    <color name="status_pending">#FFCA28</color>    <!-- Amber -->
+    <color name="status_adopted">#EF5350</color>    <!-- Soft Red -->
+
+    <!-- Button / UI Extras -->
+    <color name="button_bg">#FFB74D</color>      <!-- Bright Orange -->
+    <color name="button_text">#FFFFFF</color>    <!-- White -->
+    <color name="card_bg">#FFFFFF</color>        <!-- White for Cards -->
+</resources>

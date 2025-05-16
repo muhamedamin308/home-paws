@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "151230143194",
+    "project_id": "homepaws-24cb3",
+    "storage_bucket": "homepaws-24cb3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151230143194:android:bd9e0f3ce00f202042a3e3",
+        "android_client_info": {
+          "package_name": "com.example.homepaws"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb077W_P_apLVKMeeeBlT7Xeik6LlkYpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

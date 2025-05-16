@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/rounded_home_24"
+        android:iconTint="@color/primary"
+        android:title="Home" />
+    <item
+        android:id="@+id/favouritesFragment"
+        android:icon="@drawable/baseline_favorite_24"
+        android:iconTint="@color/primary"
+        android:title="Favourites" />
+    <item
+        android:id="@+id/nearbySheltersFragment"
+        android:icon="@drawable/outline_explore_nearby_24"
+        android:iconTint="@color/primary"
+        android:title="Nearby" />
+    <item
+        android:id="@+id/appointmentsFragment"
+        android:icon="@drawable/outline_calendar_month_24"
+        android:iconTint="@color/primary"
+        android:title="Appointments" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/outline_account_circle_24"
+        android:iconTint="@color/primary"
+        android:title="Profile" />
+</menu>

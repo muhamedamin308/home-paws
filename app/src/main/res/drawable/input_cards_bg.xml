@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Use theme attributes for the stroke and fill colors -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/text_light" /> <!-- For border color -->
+    <solid android:color="@color/card_bg" /> <!-- For background color -->
+    <corners android:radius="6dp" />
+</shape>
