@@ -53,9 +53,11 @@ dependencies {
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.android.material:material:1.3.0")
     // ViewModel and LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
@@ -64,7 +66,17 @@ dependencies {
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.19.+")
     implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    // Coroutines Core
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+    // Coroutines Android (for Android-specific extensions)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Lifecycle ViewModel Scope
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    // Lifecycle Runtime Scope (for lifecycleScope)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("io.insert-koin:koin-android:3.5.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0")
     // Retrofit for network requests
@@ -93,6 +105,15 @@ dependencies {
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
     // Swipe Refresh Layout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    // ExoPlayer core
+    implementation("androidx.media3:media3-exoplayer:1.3.1")
+    // ExoPlayer UI
+    implementation("androidx.media3:media3-ui:1.3.1")
+    // Google Maps
+    implementation("com.google.maps.android:android-maps-utils:3.10.0")
+    implementation("com.google.maps.android:maps-utils-ktx:5.1.1")
+    implementation("com.google.android.gms:play-services-maps:20.0.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }
 
 kapt {

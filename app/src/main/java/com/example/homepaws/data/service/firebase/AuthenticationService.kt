@@ -3,6 +3,7 @@ package com.example.homepaws.data.service.firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import kotlinx.coroutines.tasks.await
 
 /**
  * @author Muhamed Amin Hassan on 13,May,2025
@@ -12,57 +13,36 @@ import com.google.firebase.auth.UserProfileChangeRequest
 class AuthenticationService(
     private val auth: FirebaseAuth,
 ) {
+    val currentUser: FirebaseUser?
+        get() = auth.currentUser
+
     val isLoggedIn: Boolean
-        get() = auth.currentUser != null
+        get() = currentUser != null
 
-    fun signInWithEmailAndPassword(
-        email: String,
-        password: String,
-        onSuccess: (FirebaseUser) -> Unit,
-        onFailure: (Exception) -> Unit,
-    ) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener { it.user?.let { onSuccess(it) } }
-            .addOnFailureListener { onFailure(it) }
+    suspend fun signIn(email: String, password: String): Result<FirebaseUser> = try {
+        val result = auth.signInWithEmailAndPassword(email, password).await()
+        result.user?.let { Result.success(it) }
+            ?: Result.failure(Exception("User not found"))
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 
-    fun signupWithEmailAndPassword(
-        name: String,
-        email: String,
-        password: String,
-        onSuccess: (FirebaseUser) -> Unit,
-        onFailure: (Exception) -> Unit,
-    ) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val user = it.result?.user
-                    user?.let {
-                        val profileUpdates = UserProfileChangeRequest.Builder()
-                            .setDisplayName(name)
-                            .build()
+    suspend fun signUp(name: String, email: String, password: String): Result<FirebaseUser> = try {
+        val result = auth.createUserWithEmailAndPassword(email, password).await()
+        val user = result.user
+            ?: return Result.failure(Exception("User creation failed"))
 
-                        user.updateProfile(profileUpdates)
-                            .addOnCompleteListener { updateTask ->
-                                if (updateTask.isSuccessful)
-                                    onSuccess(it)
-                                else
-                                    onFailure(
-                                        updateTask.exception
-                                            ?: Exception("Failed to update profile")
-                                    )
-                            }
-                    } ?: onFailure(Exception("User is null"))
-                } else
-                    onFailure(it.exception ?: Exception("Unknown error"))
-            }
+        val profileUpdates =
+            UserProfileChangeRequest.Builder().setDisplayName(name).build()
+
+        user.updateProfile(profileUpdates).await()
+        Result.success(user)
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 
-    fun fetchUserProfile(): FirebaseUser =
-        if (isLoggedIn) auth.currentUser!! else throw IllegalStateException("User not logged in")
+    fun getCurrentUser(): FirebaseUser =
+        currentUser ?: throw IllegalStateException("Not authenticated")
 
-    fun signOut() {
-        auth.signOut()
-    }
-
+    fun signOut() = auth.signOut()
 }

@@ -3,6 +3,8 @@ package com.example.homepaws.data.service.api
 import com.example.homepaws.data.model.animal.Animal
 import com.example.homepaws.data.model.animal.AnimalResponse
 import com.example.homepaws.data.model.breeds.BreedsResponse
+import com.example.homepaws.data.model.enums.Gender
+import com.example.homepaws.data.model.enums.SortOption
 import com.example.homepaws.data.model.organization.OrganizationResponse
 import com.example.homepaws.data.model.types.TypeResponse
 import retrofit2.Response
@@ -16,6 +18,12 @@ import retrofit2.http.Query
  * Egypt, Cairo.
  */
 interface AnimalApiService {
+
+    companion object {
+        const val DEFAULT_DISTANCE = 100
+        const val DEFAULT_SORT = "recent"
+    }
+
     @GET("v2/animals")
     suspend fun getAnimals(): Response<AnimalResponse>
 
@@ -24,12 +32,12 @@ interface AnimalApiService {
         @Query("type") type: String? = null,
         @Query("breed") breed: String? = null,
         @Query("size") size: String? = null,
-        @Query("gender") gender: String? = null,
+        @Query("gender") gender: Gender? = null,
         @Query("age") age: String? = null,
-        @Query("status") status: String? = "adoptable",
+        @Query("status") status: String? = null,
         @Query("location") location: String? = null,
-        @Query("distance") distance: Int? = 100,
-        @Query("sort") sort: String? = "recent",
+        @Query("distance") distance: Int? = DEFAULT_DISTANCE,
+        @Query("sort") sort: SortOption? = null,
         @Query("page") page: Int = 1,
     ): Response<AnimalResponse>
 

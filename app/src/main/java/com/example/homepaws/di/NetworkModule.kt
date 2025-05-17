@@ -4,7 +4,7 @@ import com.example.homepaws.data.service.api.AnimalApiService
 import com.example.homepaws.data.service.api.AuthApiService
 import com.example.homepaws.data.service.api.interceptor.NetworkConnectivityInterceptor
 import com.example.homepaws.data.service.api.interceptor.TokenInterceptor
-import com.example.homepaws.utils.InMemoryCache
+import com.example.homepaws.utils.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -23,7 +23,7 @@ val networkModule = module {
 
     single {
         TokenInterceptor {
-            get<InMemoryCache.TokenStorage>().getToken() ?: ""
+            get<Cache.TokenStorage>().getToken() ?: ""
         }
     }
 

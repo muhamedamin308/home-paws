@@ -1,6 +1,7 @@
 package com.example.homepaws.di
 
 import com.example.homepaws.features.auth.viewmodel.AuthViewModel
+import com.example.homepaws.features.home.viewmodel.HomeViewModel
 import com.example.homepaws.features.onboarding.viewmodel.OnBoardingViewModel
 import com.example.homepaws.features.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -18,6 +19,12 @@ val viewModelModule = module {
     viewModel {
         AuthViewModel(
             get(),
+            get(),
+            get()
+        )
+    }
+    viewModel {
+        HomeViewModel(
             get(),
             get()
         )

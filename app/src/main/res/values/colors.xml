@@ -2,11 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="pill_color">#6200EE</color> <!-- Purple color as an example -->
+    <color name="pill_stroke_color">#3700B3</color> <!-- Darker purple -->
 
     <!-- Primary Colors -->
     <color name="primary">#FFA726</color>        <!-- Warm Orange -->
     <color name="primary_dark">#FB8C00</color>   <!-- Deep Orange -->
     <color name="primary_light">#FFCC80</color>  <!-- Soft Orange -->
+    <color name="brown">#562121</color>           <!-- Brown -->
 
     <!-- Secondary / Accent Colors -->
     <color name="accent">#4DB6AC</color>         <!-- Calm Teal -->

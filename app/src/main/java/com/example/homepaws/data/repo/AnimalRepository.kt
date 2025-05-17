@@ -3,6 +3,8 @@ package com.example.homepaws.data.repo
 import com.example.homepaws.data.model.animal.Animal
 import com.example.homepaws.data.model.animal.AnimalResponse
 import com.example.homepaws.data.model.breeds.BreedsResponse
+import com.example.homepaws.data.model.enums.Gender
+import com.example.homepaws.data.model.enums.SortOption
 import com.example.homepaws.data.model.organization.OrganizationResponse
 import com.example.homepaws.data.model.types.TypeResponse
 import com.example.homepaws.state.AppState
@@ -18,12 +20,12 @@ interface AnimalRepository {
         type: String? = null,
         breed: String? = null,
         size: String? = null,
-        gender: String? = null,
+        gender: Gender? = null,
         age: String? = null,
         status: String? = "adoptable",
         location: String? = null,
         distance: Int? = 100,
-        sort: String? = "recent",
+        sort: SortOption? = null,
         page: Int = 1,
     ): AppState<AnimalResponse>
 

@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.homepaws.utils.Constants
-import com.example.homepaws.utils.InMemoryCache
+import com.example.homepaws.utils.Cache
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -29,6 +29,6 @@ val localStorageModule = module {
     }
 
     single {
-        InMemoryCache.TokenStorage(get())
+        Cache.TokenStorage(get())
     }
 }

@@ -7,7 +7,7 @@ import com.example.homepaws.data.repo.AuthRepository
 import com.example.homepaws.data.service.firebase.AuthenticationService
 import com.example.homepaws.features.base.BaseViewModel
 import com.example.homepaws.state.AppState
-import com.example.homepaws.utils.InMemoryCache
+import com.example.homepaws.utils.Cache
 import com.example.homepaws.utils.RegisterFieldState
 import com.example.homepaws.utils.RegisterValidation
 import com.example.homepaws.utils.validateEmail
@@ -28,7 +28,7 @@ import kotlinx.coroutines.runBlocking
 class AuthViewModel(
     private val authService: AuthenticationService,
     private val authRepository: AuthRepository,
-    private val tokenStorage: InMemoryCache.TokenStorage,
+    private val tokenStorage: Cache.TokenStorage,
 ) : BaseViewModel() {
     private val _signUpState =
         MutableStateFlow<AppState<FirebaseUser>>(AppState.Ideal())
@@ -72,14 +72,14 @@ class AuthViewModel(
     fun signUp(name: String, email: String, password: String) {
         if (accountValidation(email, password)) {
             updateAppState(_signUpState, AppState.Loading())
-            authService.signupWithEmailAndPassword(
-                name = name, email = email, password = password,
-                onSuccess = {
+            viewModelScope.launch {
+                val result = authService.signUp(name = name, email = email, password = password)
+                result.onSuccess {
                     handleResult(_signUpState, it, null)
-                }, onFailure = {
-                    handleResult(_signUpState, null, it)
+                }.onFailure {
+                    handleResult(_signUpState, null, it as Exception?)
                 }
-            )
+            }
         } else {
             val registerFieldsState = RegisterFieldState(
                 validateEmail(email),
@@ -92,14 +92,14 @@ class AuthViewModel(
     fun signIn(email: String, password: String) {
         if (accountValidation(email, password)) {
             updateAppState(_signInState, AppState.Loading())
-            authService.signInWithEmailAndPassword(
-                email = email, password = password,
-                onSuccess = {
+            viewModelScope.launch {
+                val result = authService.signIn(email = email, password = password)
+                result.onSuccess {
                     handleResult(_signInState, it, null)
-                }, onFailure = {
-                    handleResult(_signInState, null, it)
+                }.onFailure {
+                    handleResult(_signInState, null, it as Exception?)
                 }
-            )
+            }
         } else {
             val registerFieldsState = RegisterFieldState(
                 validateEmail(email),

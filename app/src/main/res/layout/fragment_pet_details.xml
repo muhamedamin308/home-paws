@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Pet Image Placeholder (would be populated from photos array if available) -->
+        <ImageView
+            android:id="@+id/petImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/background_dark"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/picture" />
+
+        <!-- Basic Info Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_light"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="3dp">
+
+                    <TextView
+                        android:id="@+id/petName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="24sp"
+                        tools:text="George Burns" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
+
+                    <TextView
+                        android:id="@+id/petType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/pill_background"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/brown"
+                        android:textSize="14sp"
+                        tools:text="Cat" />
+
+                    <TextView
+                        android:id="@+id/petGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/pill_background"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/brown"
+                        android:textSize="14sp"
+                        tools:text="Male" />
+
+                    <TextView
+                        android:id="@+id/petAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/pill_background"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/brown"
+                        android:textSize="14sp"
+                        tools:text="Baby" />
+
+                    <TextView
+                        android:id="@+id/petSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/pill_background"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/brown"
+                        android:textSize="14sp"
+                        tools:text="Small" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/petBreed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="16sp"
+                    tools:text="Domestic Short Hair (Mixed)" />
+
+                <TextView
+                    android:id="@+id/animal_environment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Environment: Good with dogs, cats, children"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:orientation="horizontal"
+                    android:paddingVertical="3dp">
+
+                    <!-- First Column -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingVertical="3dp">
+
+                        <TextView
+                            android:id="@+id/spayed_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:drawableStart="@drawable/neuter_24"
+                            android:drawablePadding="4dp"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center_vertical"
+                            android:text="Spayed/Neutered: Yes"
+                            android:textSize="14sp"
+                            app:drawableTint="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/shots_current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:drawableStart="@drawable/syringe_24"
+                            android:drawablePadding="4dp"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center_vertical"
+                            android:text="Shots Current: Yes"
+                            android:textSize="14sp"
+                            app:drawableTint="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/special_needs_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:drawableStart="@drawable/outline_stylus_note_24"
+                            android:drawablePadding="4dp"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center_vertical"
+                            android:text="Special Needs: No"
+                            android:textSize="14sp"
+                            app:drawableTint="@color/primary" />
+                    </LinearLayout>
+
+                    <!-- Second Column -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingVertical="3dp">
+
+                        <TextView
+                            android:id="@+id/house_trained_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:drawableStart="@drawable/dog_bowl_24"
+                            android:drawablePadding="4dp"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center_vertical"
+                            android:text="House-trained: No"
+                            android:textSize="14sp"
+                            app:drawableTint="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/adoption_status_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:drawableStart="@drawable/dog_leashed_24"
+                            android:drawablePadding="4dp"
+                            android:fontFamily="@font/nunito_bold"
+                            android:gravity="center_vertical"
+                            android:text="Adoptable"
+                            android:textColor="@android:color/holo_green_dark"
+                            android:textSize="14sp"
+                            app:drawableTint="@color/primary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Description Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_light"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Pet"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/petDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    tools:text="My name is George Burns and I'm a sweet, well-mannered little male kitten. I'm a bit reserved and will..." />
+
+                <!-- Horizontal Gallery -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layoutManager_orientation="horizontal"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_gallery_photo" />
+
+                <TextView
+                    android:id="@+id/textPhotoMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="No photos available"
+                    android:textColor="@android:color/darker_gray" />
+
+                <androidx.media3.ui.PlayerView
+                    android:id="@+id/playerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:show_buffering="when_playing"
+                    app:use_controller="true" />
+
+                <TextView
+                    android:id="@+id/textVideoMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="No videos available"
+                    android:textColor="@android:color/darker_gray" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Shelter Info Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_light"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shelter Info"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shelterName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    tools:text="OrgnizationId - OrgnizationAnimalId" />
+
+                <TextView
+                    android:id="@+id/shelterAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:hint="address1, city, state postcode, country"
+                    android:textSize="16sp"
+                    tools:text="32632 Wright Rd, Magnolia, TX 77355" />
+
+                <TextView
+                    android:id="@+id/shelterPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    tools:text="(281) 789-4142" />
+
+                <TextView
+                    android:id="@+id/shelterEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    tools:text="dogadoptteam@aartexas.org" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/contactButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/rounded_button"
+                    android:fontFamily="@font/nunito_bold"
+                    android:paddingVertical="8dp"
+                    android:text="Contant Shelter"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>

@@ -1,13 +1,10 @@
-package com.example.homepaws.utils
-
-import android.util.Log
+package com.example.homepaws.data.model.enums
 
 /**
  * @author Muhamed Amin Hassan on 16,May,2025
  * @see <a href="https://github.com/muhamedamin308">Muhamed's Github</a>,
  * Egypt, Cairo.
  */
-
-fun log(tag: String, message: String?) {
-    Log.i(tag, message ?: "null")
+enum class SortOption {
+    RECENT, DISTANCE
 }

@@ -8,7 +8,7 @@ import androidx.core.content.edit
  * @see <a href="https://github.com/muhamedamin308">Muhamed's Github</a>,
  * Egypt, Cairo.
  */
-object InMemoryCache {
+object Cache {
 
     class TokenStorage(private val preferences: SharedPreferences) {
 
